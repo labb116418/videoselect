@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <input type="file" id="videoInput" accept="video/*" style="display: none" />
+    <div class="banner">
+      <div class="video">
+        <video autoplay muted loop>
+          <source src="" type="video/mp4" />
+        </video>
+      </div>
+      <div class="l2">
+        <div class="box">
+          <video autoplay muted loop>
+            <source src="" type="video/mp4" />
+          </video>
+        </div>
+        <div class="content">
+          <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum quia
+            tempora porro dolor beatae, numquam molestias odit mollitia sequi
+            nihil minima sapiente iusto. Rerum ipsum nobis, omnis quae a
+            laborum?
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    document.body.addEventListener("click", function () {
+      const video = document.getElementById("videoInput").click();
+    });
+
+    document.getElementById('videoInput').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        let video = document.querySelectorAll('video');
+        if (video && file) {
+        const objectURL = URL.createObjectURL(file);
+        video.forEach(function(video) {
+        video.src = objectURL;
+        })
+        }
+      })
+  </script>
+</html>
